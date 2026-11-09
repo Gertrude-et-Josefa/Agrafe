@@ -1,0 +1,40 @@
+# Publication automatique chez o2switch
+#  - branche test -> sous-domaine de test
+#  - branche main -> agrafe.gertrudeetjosefa.fr (production)
+# Les identifiants FTP sont des « secrets » GitHub : ils ne figurent jamais dans le code.
+name: Publication
+
+on:
+  push:
+    branches: [test, main]
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'production' || 'test' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installation
+        run: npm ci
+
+      - name: Construction
+        run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+
+      - name: Envoi chez o2switch
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVEUR }}
+          username: ${{ secrets.FTP_UTILISATEUR }}
+          password: ${{ secrets.FTP_MOT_DE_PASSE }}
+          protocol: ftps
+          local-dir: ./build/
+          server-dir: ${{ vars.FTP_DOSSIER }}
