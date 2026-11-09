@@ -30,11 +30,21 @@ jobs:
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Envoi chez o2switch
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVEUR }}
-          username: ${{ secrets.FTP_UTILISATEUR }}
-          password: ${{ secrets.FTP_MOT_DE_PASSE }}
-          protocol: ftps
-          local-dir: ./build/
-          server-dir: ${{ vars.FTP_DOSSIER }}
+        # lftp en FTPS (chiffré), qui gère la reprise de session TLS exigée par le serveur.
+        # Les dossiers techniques de l'hébergeur (.well-known pour le SSL, cgi-bin) ne sont jamais touchés.
+        env:
+          FTP_SERVEUR: ${{ secrets.FTP_SERVEUR }}
+          FTP_UTILISATEUR: ${{ secrets.FTP_UTILISATEUR }}
+          FTP_MOT_DE_PASSE: ${{ secrets.FTP_MOT_DE_PASSE }}
+          FTP_DOSSIER: ${{ vars.FTP_DOSSIER }}
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 2;
+            set net:timeout 30;
+            open -u \"$FTP_UTILISATEUR\",\"$FTP_MOT_DE_PASSE\" \"$FTP_SERVEUR\";
+            mirror --reverse --delete --verbose=1 --exclude-glob .well-known/ --exclude-glob cgi-bin/ --exclude-glob .ftpquota ./build/ \"$FTP_DOSSIER\"
+          "
