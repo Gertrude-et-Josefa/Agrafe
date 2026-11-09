@@ -284,3 +284,14 @@ $$;
 
 revoke all on function public.restaurer_espace(uuid) from public, anon;
 grant execute on function public.restaurer_espace(uuid) to authenticated;
+
+-- ---------------------------------------------------------------------
+-- Autorisations explicites (les nouvelles tables ne sont pas exposées
+-- automatiquement) : les règles RLS ci-dessus filtrent ensuite les lignes.
+-- ---------------------------------------------------------------------
+grant usage on schema public to anon, authenticated;
+grant select, update            on public.profils to authenticated;
+grant select, update            on public.espaces to authenticated;
+grant select, insert, update, delete on public.membres to authenticated;
+grant select                    on public.journal to authenticated;
+revoke all on public.profils, public.espaces, public.membres, public.journal from anon;
