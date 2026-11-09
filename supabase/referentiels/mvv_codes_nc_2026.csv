@@ -1,0 +1,39 @@
+type_code;type_libelle;code_nc;brix;valeur;autre_critere;tav
+M001;Raisin frais;08061090;;;raisin de cuve frais (hors raisin de table);
+M002;Jus de raisin;20096110;Brix ≤ 30;> 18 €/100 kg;;TAV acquis < 1,2 %
+M002;Jus de raisin;20096190;Brix ≤ 30;≤ 18 €/100 kg;;TAV acquis < 1,2 %
+M002;Jus de raisin;20096911;Brix > 67;≤ 22 €/100 kg;;TAV acquis < 1,2 %
+M002;Jus de raisin;20096919;Brix > 67;> 22 €/100 kg;;TAV acquis < 1,2 %
+M002;Jus de raisin;20096959;Brix > 30 et ≤ 67;> 18 €/100 kg;;TAV acquis < 1,2 %
+M002;Jus de raisin;20096990;Brix > 30 et ≤ 67;≤ 18 €/100 kg;sucres d'addition ≤ 30 % en poids;TAV acquis < 1,2 %
+M003;Moût de raisin;20096110;Brix ≤ 30;> 18 €/100 kg;;TAV acquis < 1,2 %
+M003;Moût de raisin;20096190;Brix ≤ 30;≤ 18 €/100 kg;;TAV acquis < 1,2 %
+M003;Moût de raisin;20096911;Brix > 67;≤ 22 €/100 kg;;TAV acquis < 1,2 %
+M003;Moût de raisin;20096919;Brix > 67;> 22 €/100 kg;;TAV acquis < 1,2 %
+M003;Moût de raisin;20096959;Brix > 30 et ≤ 67;> 18 €/100 kg;;TAV acquis < 1,2 %
+M003;Moût de raisin;20096990;Brix > 30 et ≤ 67;≤ 18 €/100 kg;sucres d'addition ≤ 30 % en poids;TAV acquis < 1,2 %
+M003;Moût de raisin;22043010;;;partiellement fermenté, même muté autrement qu'à l'alcool;TAV < 1,2 %
+M003;Moût de raisin;22043094;;;masse volumique ≤ 1,33 g/cm3 à 20 °C;TAV acquis ≤ 1 %
+M003;Moût de raisin;22043098;;;masse volumique > 1,33 g/cm3 à 20 °C;TAV acquis > 1 % et < 1,2 %
+M004;Moût concentré;20096110;Brix ≤ 30;> 18 €/100 kg;;TAV acquis < 1,2 %
+M004;Moût concentré;20096190;Brix ≤ 30;≤ 18 €/100 kg;;TAV acquis < 1,2 %
+M004;Moût concentré;20096911;Brix > 67;≤ 22 €/100 kg;;TAV acquis < 1,2 %
+M004;Moût concentré;20096919;Brix > 67;> 22 €/100 kg;;TAV acquis < 1,2 %
+M004;Moût concentré;20096951;Brix > 30 et ≤ 67;> 18 €/100 kg;;TAV acquis < 1,2 %
+M004;Moût concentré;20096990;Brix > 30 et ≤ 67;≤ 18 €/100 kg;sucres d'addition ≤ 30 % en poids;TAV acquis < 1,2 %
+M004;Moût concentré;22043092;;;masse volumique ≤ 1,33 g/cm3 à 20 °C;TAV acquis ≤ 1 %
+M004;Moût concentré;22043096;;;masse volumique > 1,33 g/cm3 à 20 °C;TAV acquis > 1 % et < 1,2 %
+M005;Moût concentré rectifié;20096110;Brix ≤ 30;> 18 €/100 kg;;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;20096190;Brix ≤ 30;≤ 18 €/100 kg;;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;20096911;Brix > 67;≤ 22 €/100 kg;;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;20096919;Brix > 67;> 22 €/100 kg;;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;20096951;Brix > 30 et ≤ 67;> 18 €/100 kg;;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;20096990;Brix > 30 et ≤ 67;≤ 18 €/100 kg;sucres d'addition ≤ 30 % en poids;TAV acquis < 1,2 %
+M005;Moût concentré rectifié;22043092;;;masse volumique ≤ 1,33 g/cm3 à 20 °C;TAV acquis ≤ 1 %
+M005;Moût concentré rectifié;22043096;;;masse volumique > 1,33 g/cm3 à 20 °C;TAV acquis > 1 % et < 1,2 %
+M006;Marcs;23080011;;;titre alcoométrique total ≤ 4,3 % mas et matière sèche ≥ 40 % en poids;
+M006;Marcs;23080019;;;autres marcs;
+M007;Lies de vin;23070011;;;titre alcoométrique total ≤ 7,9 % mas et matière sèche ≥ 25 % en poids;
+M007;Lies de vin;23070019;;;autres lies;
+M008;Vins désalcoolisés, TAV ≤ 0,5 %;22029919;;;;
+M009;Vins désalcoolisés, TAV > 0,5 % et ≤ 1,2 %;2204;;;toutes les nomenclatures des vins (2204…);
