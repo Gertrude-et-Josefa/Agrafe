@@ -119,7 +119,7 @@
 				</fieldset>
 
 				<label for="nom-espace">Nom de l'espace</label>
-				<input id="nom-espace" bind:value={nouveauNom} placeholder="ex. Vinalchimie" required />
+				<input id="nom-espace" bind:value={nouveauNom} required />
 
 				<label class="case">
 					<input type="checkbox" bind:checked={packViticole} />
